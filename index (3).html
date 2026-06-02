@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECガンマーアルテイン | アウラレシピ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC7A;
+    --gold-dark: #9A7A2E;
+    --deep-green: #3D2E1A;
+    --mid-green: #5C4420;
+    --sage: #B8A07A;
+    --cream: #FAF6EE;
+    --warm-white: #FFFDF8;
+    --text-dark: #2A1E0A;
+    --text-mid: #5A4A30;
+    --text-light: #9A8A6A;
+    --accent-red: #B8473C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--deep-green);
+    padding: 14px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  header .brand {
+    font-family: 'Shippori Mincho', serif;
+    color: var(--gold-light);
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 400;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: var(--deep-green);
+  }
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 0.9s ease forwards 0.1s;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  .hero::before { display: none; }
+  .hero-eyebrow { display: none; }
+  .hero-eyebrow-DISABLED {
+    display: none;
+  }
+  .hero-badge {
+    display: none;
+  }
+  .hero-title {
+    display: none;
+  }
+  .hero-title span {
+    color: var(--gold-light);
+    display: block;
+  }
+  .hero-subtitle {
+    display: none;
+    font-size: 13px;
+    color: var(--sage);
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+  .hero-catch { display: none; }
+  .hero-catch-DISABLED {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(16px, 4vw, 22px);
+    color: var(--cream);
+    text-align: center;
+    line-height: 1.9;
+    max-width: 480px;
+    margin-bottom: 50px;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+  }
+  .hero-catch strong {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+  .hero-cta { display: none; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    background-size: 200% 100%;
+    color: var(--deep-green);
+    padding: 18px 48px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    border-radius: 2px;
+  }
+  .btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+  }
+  .btn-sub {
+    display: block;
+    font-size: 11px;
+    color: var(--sage);
+    text-align: center;
+    margin-top: 12px;
+    letter-spacing: 1px;
+  }
+  .hero-scroll { display: none; }
+  .hero-scroll span {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--sage);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ===== CONCERN SECTION ===== */
+  .concern {
+    background: var(--cream);
+    padding: 80px 24px;
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 700;
+    text-align: center;
+    color: var(--deep-green);
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+  .concern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto 48px;
+  }
+  .concern-item {
+    background: white;
+    border: 1px solid #E8E0D0;
+    padding: 18px 14px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .concern-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.15);
+  }
+  .concern-item .icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .concern-item p {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .concern-check {
+    text-align: center;
+  }
+  .concern-check p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    color: var(--deep-green);
+    font-weight: 700;
+    line-height: 2;
+  }
+  .concern-check p strong {
+    color: var(--gold-dark);
+    font-size: 22px;
+  }
+
+  /* ===== DIVIDER ===== */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .gold-divider::before, .gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .gold-divider::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+  .gold-divider .diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ===== PRODUCT INTRO ===== */
+  .product-intro {
+    background: var(--deep-green);
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .product-intro .section-title { color: var(--cream); }
+  .product-intro .section-label { color: var(--gold); }
+  .product-bottle {
+    width: 180px;
+    height: 220px;
+    background: linear-gradient(145deg, #C9A84C 0%, #E8CC7A 30%, #C9A84C 60%, #9A7A2E 100%);
+    border-radius: 12px 12px 16px 16px;
+    margin: 0 auto 40px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-bottle::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(to bottom, #9A7A2E, #C9A84C);
+    border-radius: 4px 4px 0 0;
+  }
+  .product-bottle .bottle-label {
+    background: rgba(255,255,255,0.92);
+    width: 80%;
+    height: 60%;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .product-bottle .bottle-label .bl-brand {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--deep-green);
+    font-weight: 700;
+  }
+  .product-bottle .bottle-label .bl-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--deep-green);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .product-bottle .bottle-label .bl-en {
+    font-size: 7px;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .product-desc {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .product-desc p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    color: var(--cream);
+    line-height: 2.1;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .product-desc p strong {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+  .product-spec {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 20px;
+    margin-top: 32px;
+    border-radius: 4px;
+  }
+  .product-spec p {
+    font-size: 13px;
+    color: var(--sage);
+    margin: 0;
+    line-height: 1.8;
+  }
+  .product-spec strong {
+    color: var(--gold-light);
+    font-size: 20px;
+  }
+
+  /* ===== FEATURE STRIP ===== */
+  .feature-strip {
+    background: var(--gold);
+    padding: 20px 24px;
+    overflow: hidden;
+  }
+  .feature-strip-inner {
+    display: flex;
+    gap: 32px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .feature-strip span {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--deep-green);
+    letter-spacing: 2px;
+    flex-shrink: 0;
+  }
+  .feature-strip span::before {
+    content: '◆ ';
+  }
+
+  /* ===== INGREDIENTS ===== */
+  .ingredients {
+    background: var(--warm-white);
+    padding: 80px 24px;
+  }
+  .ingredient-list {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ingredient-item {
+    border-bottom: 1px solid #E8E0D0;
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    align-items: start;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+  }
+  .ingredient-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .ingredient-item:last-child { border-bottom: none; }
+  .ing-num {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--deep-green), var(--mid-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .ing-num::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: 0.5;
+  }
+  .ing-num span {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--gold-light);
+  }
+  .ing-content {}
+  .ing-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 4px;
+  }
+  .ing-sub {
+    font-size: 10px;
+    color: var(--gold-dark);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .ing-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+  .ing-tag {
+    display: inline-block;
+    background: var(--deep-green);
+    color: var(--gold-light);
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* ===== TARGET ===== */
+  .target {
+    background: linear-gradient(160deg, var(--mid-green), var(--deep-green));
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .target::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 40px solid rgba(201,168,76,0.06);
+    pointer-events: none;
+  }
+  .target .section-title { color: var(--cream); }
+  .target-list {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .target-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 16px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+  }
+  .target-item:hover {
+    background: rgba(201,168,76,0.12);
+    border-color: var(--gold);
+  }
+  .target-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .target-item p {
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  /* ===== HOW TO USE ===== */
+  .howto {
+    background: var(--cream);
+    padding: 80px 24px;
+  }
+  .howto-steps {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .howto-steps::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .howto-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+  .step-num {
+    width: 42px;
+    height: 42px;
+    background: var(--deep-green);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .step-num span {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .step-content {}
+  .step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  /* ===== PRICE SECTION ===== */
+  .price-section {
+    background: var(--cream);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .price-section .section-title { color: var(--deep-green); }
+  .price-section .section-label { color: var(--gold-dark); }
+  .price-card {
+    background: white;
+    border: 1px solid #E0D4B8;
+    max-width: 360px;
+    margin: 0 auto 32px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(180,150,80,0.10);
+  }
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .price-badge {
+    display: inline-block;
+    background: var(--deep-green);
+    color: var(--gold-light);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 14px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .price-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    color: var(--deep-green);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .price-info {
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .price-currency {
+    font-size: 18px;
+    color: var(--gold-dark);
+    font-weight: 400;
+  }
+  .price-number {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 48px;
+    color: var(--gold-dark);
+    font-weight: 800;
+    line-height: 1;
+  }
+  .price-tax {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .price-note {
+    font-size: 11px;
+    color: var(--text-mid);
+    margin-top: 16px;
+    line-height: 1.8;
+  }
+  .price-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin: 20px auto;
+  }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final {
+    background: linear-gradient(160deg, #F5EFE2 0%, #EDE4CC 100%);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-copy {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(20px, 5vw, 28px);
+    color: var(--deep-green);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  .cta-copy strong {
+    color: var(--gold-dark);
+  }
+  .cta-warning {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 2;
+    margin-top: 32px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--deep-green);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+  footer p {
+    font-size: 10px;
+    color: var(--sage);
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+  footer .footer-brand {
+    font-family: 'Shippori Mincho', serif;
+    color: var(--gold-light);
+    font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 3px;
+  }
+
+  .price-section .btn-primary {
+    background: linear-gradient(135deg, var(--deep-green) 0%, var(--mid-green) 100%);
+    color: var(--gold-light);
+    letter-spacing: 3px;
+  }
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== VALUE JUSTIFICATION ===== */
+  .value-section {
+    background: var(--cream);
+    padding: 80px 24px;
+  }
+  .value-lead {
+    max-width: 480px;
+    margin: 0 auto 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+  }
+  .value-compare {
+    max-width: 480px;
+    margin: 0 auto 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .value-items {
+    background: white;
+    border: 1px solid #E8E0D0;
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+  }
+  .value-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #F0EAE0;
+    gap: 12px;
+  }
+  .value-item-name {
+    font-size: 12px;
+    color: var(--text-mid);
+    flex: 1;
+  }
+  .value-item-price {
+    font-size: 13px;
+    color: var(--text-dark);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .value-item-price span {
+    color: var(--text-mid);
+    font-weight: 600;
+  }
+  .value-item-price small {
+    font-size: 10px;
+    color: var(--text-light);
+  }
+  .value-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #F5EFE5;
+    gap: 12px;
+  }
+  .value-total-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .value-total-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .value-total-price span {
+    font-size: 18px;
+    color: #8B4040;
+  }
+  .value-total-price small {
+    font-size: 10px;
+    color: var(--text-light);
+  }
+  .value-vs {
+    background: linear-gradient(135deg, var(--deep-green), var(--mid-green));
+    border-radius: 0 0 4px 4px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .value-vs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .value-vs-inner {
+    position: relative;
+  }
+  .value-vs-label {
+    font-size: 11px;
+    color: var(--sage);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .value-vs-price {
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .value-vs-price strong {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 42px;
+    color: var(--gold-light);
+    font-weight: 800;
+    line-height: 1;
+  }
+  .value-vs-price small {
+    font-size: 12px;
+    color: var(--sage);
+  }
+  .value-vs-save {
+    display: inline-block;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+  }
+  .value-vs-save em {
+    font-style: normal;
+    font-size: 18px;
+  }
+  .value-vs-note {
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.8;
+  }
+  .value-annotation {
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-light);
+    margin-top: 12px;
+  }
+
+  /* ===== FLOATING CTA BUTTON ===== */
+  .float-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--cream);
+    border-top: 2px solid var(--gold);
+    padding: 12px 20px;
+    text-align: center;
+    transform: translateY(100%);
+    animation: slideUp 0.6s ease forwards 2s;
+  }
+  @keyframes slideUp {
+    to { transform: translateY(0); }
+  }
+  .float-cta a {
+    display: block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    color: var(--deep-green);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-decoration: none;
+    border-radius: 2px;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: opacity 0.3s;
+  }
+  .float-cta a:hover { opacity: 0.9; }
+
+  /* ===== MEDIA ===== */
+  @media (max-width: 360px) {
+    .concern-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER REMOVED (included in hero image) -->
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="#moushikomi">今すぐ申し込む — プランを選ぶ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="position:relative;">
+  <img class="hero-img" src="hero.png" alt="ECガンマーアルテイン ファーストビュー">
+</section>
+
+<!-- SECOND VIEW IMAGE -->
+<section style="background:var(--warm-white);padding:0;margin:0;">
+  <img src="second.png" alt="最近こんな不調を感じていませんか" style="display:block;width:100%;height:auto;">
+</section>
+
+<!-- INGREDIENTS -->
+<section style="background:var(--warm-white);padding:0;margin:0;">
+  <img src="third.png" alt="抗酸化ケアは1つの成分だけでは不十分" style="display:block;width:100%;height:auto;">
+</section>
+
+<!-- TARGET -->
+<section style="background:var(--warm-white);padding:0;margin:0;">
+  <img src="fourth.png" alt="しかも1日6粒、飲むだけ。" style="display:block;width:100%;height:auto;">
+</section>
+
+<!-- VALUE JUSTIFICATION -->
+<section style="background:var(--cream);padding:0;margin:0;">
+  <img src="value.png" alt="6成分をバラで買うと？コスパ比較" style="display:block;width:100%;height:auto;">
+</section>
+
+<!-- PRICE -->
+<section class="price-section" id="moushikomi">
+  <p class="section-label">ORDER — お申し込み</p>
+  <h2 class="section-title">プランを選ぶ</h2>
+  <p style="font-size:13px;color:var(--text-mid);margin-bottom:32px;line-height:1.8;">54g（300mg × 180粒）約1ヶ月分</p>
+
+  <!-- プラン1：単品 -->
+  <div class="price-card" style="border-color:#C8BFB0;background:linear-gradient(145deg,#FAF8F5,#F0EBE3);">
+    <span class="price-badge" style="background:#8A7F72;color:#FAF8F5;">単品購入</span>
+    <div class="price-name">EC単品購入</div>
+    <div class="price-info">54g（300mg × 180粒）約1ヶ月分</div>
+    <div class="price-divider"></div>
+    <div class="price-amount">
+      <span class="price-currency">¥</span>
+      <span class="price-number">12,000</span>
+    </div>
+    <div class="price-tax">税込価格</div>
+    <a href="#" class="btn-primary" style="display:block;margin-top:20px;font-size:14px;padding:16px 0;width:100%;text-align:center;letter-spacing:3px;">
+      単品で申し込む
+    </a>
+  </div>
+
+  <!-- プラン2：定期ライト -->
+  <div class="price-card" style="border-color:var(--gold);border-width:2px;background:linear-gradient(145deg,#FFFBF0,#FDF3D0);position:relative;">
+    <span class="price-badge" style="background:var(--gold-dark);color:var(--cream);">定期購入ライト</span>
+    <div class="price-name">定期購入ライト</div>
+    <div class="price-info">3か月以上の継続</div>
+    <div class="price-divider"></div>
+    <div class="price-amount">
+      <span class="price-currency">¥</span>
+      <span class="price-number">9,700</span>
+    </div>
+    <div class="price-tax">税込価格</div>
+    <div style="font-size:11px;color:var(--gold-dark);margin-top:6px;font-weight:700;">単品より ¥2,300 お得</div>
+    <a href="#" class="btn-primary" style="display:block;margin-top:20px;font-size:14px;padding:16px 0;width:100%;text-align:center;letter-spacing:3px;">
+      ライトで申し込む
+    </a>
+  </div>
+
+  <!-- プラン3：定期プロ（おすすめ） -->
+  <div class="price-card" style="border-color:var(--gold-dark);border-width:2px;background:linear-gradient(145deg,#3D2E1A,#5C4420);position:relative;margin-top:8px;">
+    <div style="display:inline-block;background:linear-gradient(135deg,#E8CC7A,#C9A84C);color:#2A1E0A;font-size:14px;font-weight:900;padding:8px 28px;letter-spacing:3px;margin-bottom:16px;border-radius:2px;box-shadow:0 4px 16px rgba(201,168,76,0.5);">★ いちばんお得 ★</div>
+    <span class="price-badge" style="background:var(--gold);color:#2A1E0A;">定期購入プレミアム</span>
+    <div class="price-name" style="color:var(--gold-light);">定期購入プレミアム</div>
+    <div class="price-info" style="color:var(--sage);">6か月以上の継続</div>
+    <div class="price-divider"></div>
+    <div class="price-amount">
+      <span class="price-currency" style="color:var(--gold-light);">¥</span>
+      <span class="price-number" style="font-size:56px;color:var(--gold-light);">8,500</span>
+    </div>
+    <div class="price-tax" style="color:var(--sage);">税込価格</div>
+    <div style="font-size:11px;color:var(--gold-light);margin-top:6px;font-weight:700;">単品より ¥3,500 お得</div>
+    <a href="#" class="btn-primary" style="display:block;margin-top:20px;font-size:14px;padding:16px 0;width:100%;text-align:center;letter-spacing:3px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold) 100%);color:var(--text-dark);">
+      プレミアムで申し込む
+    </a>
+  </div>
+
+  <p class="btn-sub" style="color:var(--text-light);margin-top:16px;font-size:11px;line-height:2;">
+    栄養成分ガイドはパッケージ裏面をご参照ください<br>
+    【原材料名】粉末還元麦芽糖水飴、乳糖、ギャバ、マリーゴールド抽出物、<br>還元型コエンザイムQ10、ビルベリーエキス粉末、セルロース、V.C、<br>ショ糖脂肪酸エステル、抽出V.E（大豆由来）、ヘマトコッカス藻色素、シェラック<br>
+    ※原材料の一部に乳を含む。
+  </p>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <p class="cta-copy">
+    6つの成分が<br>
+    目・脳・全身の<br>
+    <strong>「酸化老化」から<br>あなたを守る。</strong>
+  </p>
+  <a href="#moushikomi" class="btn-primary" style="font-size:15px;padding:20px 44px;letter-spacing:3px;">
+    ECガンマーアルテインを試す
+  </a>
+  <p class="cta-warning">
+    ※本品は食品です。医薬品ではありません。<br>
+    ※栄養成分・ミネラルなどについては「栄養成分ガイド」をご参照ください。<br>
+    ※体質・体調によっては合わない場合があります。<br>
+    ※疾患をお持ちの方は医師にご相談の上ご利用ください。
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">AURA RECIPE</div>
+  <p>
+    アウラレシピ / ECガンマーアルテイン<br>
+    マリーゴールド抽出物加工食品<br>
+    © Aura Recipe All rights reserved.
+  </p>
+</footer>
+
+<script>
+  // Intersection Observer for ingredient animations
+  const items = document.querySelectorAll('.ingredient-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(item => observer.observe(item));
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href="#moushikomi"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('moushikomi').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
